@@ -11,7 +11,7 @@ final class DrinkWaterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.red
+        view.backgroundColor = ThemeColor.primaryColor
     }
 
 

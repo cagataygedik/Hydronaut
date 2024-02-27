@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A2AFD8D52B8E05E400669D10 /* ThemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AFD8D42B8E05E400669D10 /* ThemeColor.swift */; };
 		A2D7563B2B8DFFA70050EC1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D7563A2B8DFFA70050EC1F /* AppDelegate.swift */; };
 		A2D7563D2B8DFFA70050EC1F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D7563C2B8DFFA70050EC1F /* SceneDelegate.swift */; };
 		A2D7563F2B8DFFA70050EC1F /* DrinkWaterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D7563E2B8DFFA70050EC1F /* DrinkWaterViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A2AFD8D42B8E05E400669D10 /* ThemeColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColor.swift; sourceTree = "<group>"; };
 		A2D756372B8DFFA70050EC1F /* Hydronaut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hydronaut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2D7563A2B8DFFA70050EC1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2D7563C2B8DFFA70050EC1F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +45,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A2AFD8D32B8E05D300669D10 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				A2AFD8D42B8E05E400669D10 /* ThemeColor.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		A2D7562E2B8DFFA70050EC1F = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +72,7 @@
 		A2D756392B8DFFA70050EC1F /* Hydronaut */ = {
 			isa = PBXGroup;
 			children = (
+				A2AFD8D32B8E05D300669D10 /* Constants */,
 				A2D756572B8E02970050EC1F /* Controllers */,
 				A2D756542B8E00AD0050EC1F /* Resources */,
 				A2D756432B8DFFA80050EC1F /* Assets.xcassets */,
@@ -173,6 +184,7 @@
 				A2D756592B8E02B30050EC1F /* ProfileViewController.swift in Sources */,
 				A2D756562B8E01190050EC1F /* MainNavigationController.swift in Sources */,
 				A2D7563D2B8DFFA70050EC1F /* SceneDelegate.swift in Sources */,
+				A2AFD8D52B8E05E400669D10 /* ThemeColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +335,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -354,6 +367,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
