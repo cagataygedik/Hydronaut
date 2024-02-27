@@ -9,21 +9,25 @@
 /* Begin PBXBuildFile section */
 		A2D7563B2B8DFFA70050EC1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D7563A2B8DFFA70050EC1F /* AppDelegate.swift */; };
 		A2D7563D2B8DFFA70050EC1F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D7563C2B8DFFA70050EC1F /* SceneDelegate.swift */; };
-		A2D7563F2B8DFFA70050EC1F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D7563E2B8DFFA70050EC1F /* ViewController.swift */; };
-		A2D756422B8DFFA70050EC1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2D756402B8DFFA70050EC1F /* Main.storyboard */; };
+		A2D7563F2B8DFFA70050EC1F /* DrinkWaterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D7563E2B8DFFA70050EC1F /* DrinkWaterViewController.swift */; };
 		A2D756442B8DFFA80050EC1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2D756432B8DFFA80050EC1F /* Assets.xcassets */; };
 		A2D756472B8DFFA80050EC1F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2D756452B8DFFA80050EC1F /* LaunchScreen.storyboard */; };
+		A2D756502B8E00160050EC1F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A2D7564F2B8E00160050EC1F /* SnapKit */; };
+		A2D756532B8E00230050EC1F /* TextFieldEffects in Frameworks */ = {isa = PBXBuildFile; productRef = A2D756522B8E00230050EC1F /* TextFieldEffects */; };
+		A2D756562B8E01190050EC1F /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D756552B8E01190050EC1F /* MainNavigationController.swift */; };
+		A2D756592B8E02B30050EC1F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D756582B8E02B30050EC1F /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A2D756372B8DFFA70050EC1F /* Hydronaut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hydronaut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2D7563A2B8DFFA70050EC1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2D7563C2B8DFFA70050EC1F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A2D7563E2B8DFFA70050EC1F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A2D756412B8DFFA70050EC1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A2D7563E2B8DFFA70050EC1F /* DrinkWaterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkWaterViewController.swift; sourceTree = "<group>"; };
 		A2D756432B8DFFA80050EC1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A2D756462B8DFFA80050EC1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A2D756482B8DFFA80050EC1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A2D756552B8E01190050EC1F /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		A2D756582B8E02B30050EC1F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2D756502B8E00160050EC1F /* SnapKit in Frameworks */,
+				A2D756532B8E00230050EC1F /* TextFieldEffects in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +62,32 @@
 		A2D756392B8DFFA70050EC1F /* Hydronaut */ = {
 			isa = PBXGroup;
 			children = (
-				A2D7563A2B8DFFA70050EC1F /* AppDelegate.swift */,
-				A2D7563C2B8DFFA70050EC1F /* SceneDelegate.swift */,
-				A2D7563E2B8DFFA70050EC1F /* ViewController.swift */,
-				A2D756402B8DFFA70050EC1F /* Main.storyboard */,
+				A2D756572B8E02970050EC1F /* Controllers */,
+				A2D756542B8E00AD0050EC1F /* Resources */,
 				A2D756432B8DFFA80050EC1F /* Assets.xcassets */,
-				A2D756452B8DFFA80050EC1F /* LaunchScreen.storyboard */,
 				A2D756482B8DFFA80050EC1F /* Info.plist */,
 			);
 			path = Hydronaut;
+			sourceTree = "<group>";
+		};
+		A2D756542B8E00AD0050EC1F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A2D756452B8DFFA80050EC1F /* LaunchScreen.storyboard */,
+				A2D7563A2B8DFFA70050EC1F /* AppDelegate.swift */,
+				A2D7563C2B8DFFA70050EC1F /* SceneDelegate.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A2D756572B8E02970050EC1F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A2D756552B8E01190050EC1F /* MainNavigationController.swift */,
+				A2D7563E2B8DFFA70050EC1F /* DrinkWaterViewController.swift */,
+				A2D756582B8E02B30050EC1F /* ProfileViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +106,10 @@
 			dependencies = (
 			);
 			name = Hydronaut;
+			packageProductDependencies = (
+				A2D7564F2B8E00160050EC1F /* SnapKit */,
+				A2D756522B8E00230050EC1F /* TextFieldEffects */,
+			);
 			productName = Hydronaut;
 			productReference = A2D756372B8DFFA70050EC1F /* Hydronaut.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +138,10 @@
 				Base,
 			);
 			mainGroup = A2D7562E2B8DFFA70050EC1F;
+			packageReferences = (
+				A2D7564E2B8E00160050EC1F /* XCRemoteSwiftPackageReference "SnapKit" */,
+				A2D756512B8E00230050EC1F /* XCRemoteSwiftPackageReference "TextFieldEffects" */,
+			);
 			productRefGroup = A2D756382B8DFFA70050EC1F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,7 +158,6 @@
 			files = (
 				A2D756472B8DFFA80050EC1F /* LaunchScreen.storyboard in Resources */,
 				A2D756442B8DFFA80050EC1F /* Assets.xcassets in Resources */,
-				A2D756422B8DFFA70050EC1F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,8 +168,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2D7563F2B8DFFA70050EC1F /* ViewController.swift in Sources */,
+				A2D7563F2B8DFFA70050EC1F /* DrinkWaterViewController.swift in Sources */,
 				A2D7563B2B8DFFA70050EC1F /* AppDelegate.swift in Sources */,
+				A2D756592B8E02B30050EC1F /* ProfileViewController.swift in Sources */,
+				A2D756562B8E01190050EC1F /* MainNavigationController.swift in Sources */,
 				A2D7563D2B8DFFA70050EC1F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,14 +179,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		A2D756402B8DFFA70050EC1F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A2D756412B8DFFA70050EC1F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A2D756452B8DFFA80050EC1F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -297,7 +321,6 @@
 				INFOPLIST_FILE = Hydronaut/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -307,6 +330,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.celilcagataygedik.Hydronaut;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -325,7 +352,6 @@
 				INFOPLIST_FILE = Hydronaut/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -335,6 +361,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.celilcagataygedik.Hydronaut;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -363,6 +393,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A2D7564E2B8E00160050EC1F /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		A2D756512B8E00230050EC1F /* XCRemoteSwiftPackageReference "TextFieldEffects" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/raulriera/TextFieldEffects";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.7.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A2D7564F2B8E00160050EC1F /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A2D7564E2B8E00160050EC1F /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		A2D756522B8E00230050EC1F /* TextFieldEffects */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A2D756512B8E00230050EC1F /* XCRemoteSwiftPackageReference "TextFieldEffects" */;
+			productName = TextFieldEffects;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A2D7562F2B8DFFA70050EC1F /* Project object */;
 }
