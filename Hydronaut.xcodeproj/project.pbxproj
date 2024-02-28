@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A2A0B6722B8F353F000AF73F /* HYDTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A0B6712B8F353F000AF73F /* HYDTextField.swift */; };
+		A2A0B6762B8F4238000AF73F /* HYDButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A0B6752B8F4238000AF73F /* HYDButton.swift */; };
 		A2AFD8D52B8E05E400669D10 /* ThemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AFD8D42B8E05E400669D10 /* ThemeColor.swift */; };
 		A2D7563B2B8DFFA70050EC1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D7563A2B8DFFA70050EC1F /* AppDelegate.swift */; };
 		A2D7563D2B8DFFA70050EC1F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D7563C2B8DFFA70050EC1F /* SceneDelegate.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		A2A0B6712B8F353F000AF73F /* HYDTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYDTextField.swift; sourceTree = "<group>"; };
+		A2A0B6752B8F4238000AF73F /* HYDButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYDButton.swift; sourceTree = "<group>"; };
 		A2AFD8D42B8E05E400669D10 /* ThemeColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColor.swift; sourceTree = "<group>"; };
 		A2D756372B8DFFA70050EC1F /* Hydronaut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hydronaut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2D7563A2B8DFFA70050EC1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +53,7 @@
 			isa = PBXGroup;
 			children = (
 				A2A0B6712B8F353F000AF73F /* HYDTextField.swift */,
+				A2A0B6752B8F4238000AF73F /* HYDButton.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				A2A0B6722B8F353F000AF73F /* HYDTextField.swift in Sources */,
 				A2D7563F2B8DFFA70050EC1F /* HYDDrinkWaterViewController.swift in Sources */,
 				A2D7563B2B8DFFA70050EC1F /* AppDelegate.swift in Sources */,
+				A2A0B6762B8F4238000AF73F /* HYDButton.swift in Sources */,
 				A2D756592B8E02B30050EC1F /* HYDProfileViewController.swift in Sources */,
 				A2D756562B8E01190050EC1F /* HYDMainNavigationController.swift in Sources */,
 				A2D7563D2B8DFFA70050EC1F /* SceneDelegate.swift in Sources */,
