@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class MainNavigationController: UINavigationController {
+final class HYDMainNavigationController: UINavigationController {
     
     override init(rootViewController: UIViewController) {
         super.init(nibName: nil, bundle: nil)

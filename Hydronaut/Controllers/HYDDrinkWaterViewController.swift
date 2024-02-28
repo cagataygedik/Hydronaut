@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class DrinkWaterViewController: UIViewController {
+final class HYDDrinkWaterViewController: UIViewController {
     
     //MARK: - Properties
     
@@ -20,6 +20,8 @@ final class DrinkWaterViewController: UIViewController {
         label.numberOfLines = 0
         return label
     }()
+    
+    private let tapGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer()
     
     private let waterCountLabel: UILabel = {
         let label = UILabel()
@@ -37,7 +39,13 @@ final class DrinkWaterViewController: UIViewController {
         return label
     }()
     
-    private let tapGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer()
+    private let marsImageView: UIImageView = {
+        let imageView = UIImageView(image: UIImage(named: "ImageTest")) //test image
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    private let waterInputTextField = HYDTextField()
 
     //MARK: - Lifecycle
     
@@ -47,6 +55,8 @@ final class DrinkWaterViewController: UIViewController {
         setupTapGesture()
         setupNavigationBar()
         setupLabelStackView()
+        setupImageView()
+        setupWaterInputTextField()
     }
     
     //MARK: - Layout
@@ -71,7 +81,6 @@ final class DrinkWaterViewController: UIViewController {
         let stackView = UIStackView()
         stackView.axis = .vertical
         //        stackView.spacing = 2
-        
         view.addSubview(stackView)
         
         stackView.snp.makeConstraints { make in
@@ -82,10 +91,29 @@ final class DrinkWaterViewController: UIViewController {
         stackView.addArrangedSubview(baseLabel)
         stackView.addArrangedSubview(waterCountLabel)
         stackView.addArrangedSubview(achievementRateLabel)
-        
     }
     
-    // MARK: - Action
+    private func setupImageView() {
+        view.addSubview(marsImageView)
+        marsImageView.snp.makeConstraints { make in
+            make.center.equalTo(view)
+            make.leading.equalTo(view).offset(70)
+            make.trailing.equalTo(view).offset(-70)
+            make.height.equalTo(marsImageView.snp.width)
+        }
+    }
+    
+    private func setupWaterInputTextField() {
+        view.addSubview(waterInputTextField)
+        waterInputTextField.snp.makeConstraints { make in
+            make.top.equalTo(marsImageView.snp.bottom).offset(50)
+            make.centerX.equalTo(view)
+            make.leading.equalTo(view).offset(50)
+            make.trailing.equalTo(view).offset(-50)
+        }
+    }
+    
+    // MARK: - Actions
     
     @objc private func didTap() {
         view.endEditing(true)
@@ -94,5 +122,7 @@ final class DrinkWaterViewController: UIViewController {
     @objc private func resetWaterCountToZero() {}
     
     @objc private func goToProfile() {}
+    
+    @objc private func didTapButton() {}
 }
 

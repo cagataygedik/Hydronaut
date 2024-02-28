@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ProfileViewController: UIViewController {
+final class HYDProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
