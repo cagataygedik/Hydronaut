@@ -46,7 +46,19 @@ final class HYDDrinkWaterViewController: UIViewController {
     }()
     
     private let waterInputTextField = HYDTextField()
-
+    
+    private let guideLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .systemFont(ofSize: 12)
+        label.textColor = .white
+        label.text = "(User) Your recommended daily water intake is (0.0)L."
+        label.textAlignment = .center
+        return label
+    }()
+    
+    private let drinkWaterButton = HYDButton()
+    
     //MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -54,9 +66,16 @@ final class HYDDrinkWaterViewController: UIViewController {
         setupView()
         setupTapGesture()
         setupNavigationBar()
-        setupLabelStackView()
+        setupTopStackView()
         setupImageView()
         setupWaterInputTextField()
+        setupBottomStackView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        drinkWaterButton.setCustomTitleEdgeInsets(bottomInset: view.safeAreaInsets.bottom)
+        drinkWaterButton.makeCustomConstraints(height: 60 + view.safeAreaInsets.bottom)
     }
     
     //MARK: - Layout
@@ -77,10 +96,10 @@ final class HYDDrinkWaterViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person"), style: .plain, target: self, action: #selector(goToProfile))
     }
     
-    private func setupLabelStackView() {
+    // baseLabel, waterCountLabel, achievementRateLabel
+    private func setupTopStackView() {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        //        stackView.spacing = 2
         view.addSubview(stackView)
         
         stackView.snp.makeConstraints { make in
@@ -113,16 +132,29 @@ final class HYDDrinkWaterViewController: UIViewController {
         }
     }
     
+    //guideLabel, drinkWaterButton
+    private func setupBottomStackView() {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 8
+        view.addSubview(stackView)
+        
+        stackView.snp.makeConstraints { make in
+            make.leading.trailing.bottom.equalTo(view)
+        }
+        stackView.addArrangedSubview(guideLabel)
+        stackView.addArrangedSubview(drinkWaterButton)
+        
+        drinkWaterButton.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+    }
+    
     // MARK: - Actions
     
-    @objc private func didTap() {
-        view.endEditing(true)
-    }
+    @objc private func didTap() { view.endEditing(true) }
     
     @objc private func resetWaterCountToZero() {}
     
     @objc private func goToProfile() {}
     
-    @objc private func didTapButton() {}
+    @objc private func didTapButton() { print("test") }
 }
-
