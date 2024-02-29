@@ -40,7 +40,7 @@ final class HYDDrinkWaterViewController: UIViewController {
     }()
     
     private let marsImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "ImageTest")) //test image
+        let imageView = UIImageView(image: UIImage(named: "ImageTest"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
