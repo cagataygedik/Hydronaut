@@ -166,7 +166,9 @@ final class HYDDrinkWaterViewController: UIViewController {
     
     @objc private func resetWaterCountToZero() {}
     
-    @objc private func goToProfile() {}
+    @objc private func goToProfile() {
+        navigationController?.pushViewController(HYDProfileViewController(), animated: true)
+    }
     
     @objc private func didTapButton() { print("test") }
 }
