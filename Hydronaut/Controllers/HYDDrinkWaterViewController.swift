@@ -70,6 +70,11 @@ final class HYDDrinkWaterViewController: UIViewController {
         setupImageView()
         setupWaterInputTextField()
         setupBottomStackView()
+        addNotificationObservers()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -83,9 +88,16 @@ final class HYDDrinkWaterViewController: UIViewController {
         drinkWaterButton.makeCustomConstraints(height: 60 + view.safeAreaInsets.bottom)
     }
     
+    //MARK: - Auto Layout
+    
+    private func addNotificationObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
     //MARK: - Layout
     
     private func setupView() {
+        title = "Hydronaut"
         view.backgroundColor = ThemeColor.primaryColor
         view.isUserInteractionEnabled = true
     }
@@ -159,7 +171,7 @@ final class HYDDrinkWaterViewController: UIViewController {
             self.marsImageView.transform = CGAffineTransform.identity
         }, completion: nil)
     }
-
+    
     // MARK: - Actions
     
     @objc private func didTap() { view.endEditing(true) }
@@ -171,4 +183,15 @@ final class HYDDrinkWaterViewController: UIViewController {
     }
     
     @objc private func didTapButton() { print("test") }
+    
+    @objc private func keyboardWillShow(_ notification: Notification) {
+        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+            return
+        }
+        view.bounds = CGRect(x: 0, y: keyboardSize.size.height/2, width: view.bounds.width, height: view.bounds.height)
+    }
+    
+    @objc private func keyboardWillHide() {
+        view.bounds = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
+    }
 }
