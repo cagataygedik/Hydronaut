@@ -72,6 +72,11 @@ final class HYDDrinkWaterViewController: UIViewController {
         setupBottomStackView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        animateMarsImageView()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         drinkWaterButton.setCustomTitleEdgeInsets(bottomInset: view.safeAreaInsets.bottom)
@@ -148,6 +153,13 @@ final class HYDDrinkWaterViewController: UIViewController {
         drinkWaterButton.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
     }
     
+    private func animateMarsImageView() {
+        marsImageView.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
+        UIView.animate(withDuration: 1.0, delay: 0.0, options: [.curveEaseInOut, .repeat, .autoreverse], animations: {
+            self.marsImageView.transform = CGAffineTransform.identity
+        }, completion: nil)
+    }
+
     // MARK: - Actions
     
     @objc private func didTap() { view.endEditing(true) }
