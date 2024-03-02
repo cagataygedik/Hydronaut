@@ -24,7 +24,7 @@ final class HYDMainNavigationController: UINavigationController {
     }
     
     private func setupNavigationBar() {
-        navigationBar.barTintColor = ThemeColor.primaryColor
+        navigationBar.barTintColor = HYDColors.primaryColor
         navigationBar.tintColor = UIColor.white
         navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
     }

@@ -98,7 +98,7 @@ final class HYDDrinkWaterViewController: UIViewController {
     
     private func setupView() {
         title = "Hydronaut"
-        view.backgroundColor = ThemeColor.primaryColor
+        view.backgroundColor = HYDColors.primaryColor
         view.isUserInteractionEnabled = true
     }
     
