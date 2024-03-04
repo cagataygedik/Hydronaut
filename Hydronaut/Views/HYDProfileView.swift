@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import TextFieldEffects
 
 final class HYDProfileView: UIView {
     

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		A258C4BF2B96347100D44C63 /* HYDDrinkWaterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A258C4BE2B96347100D44C63 /* HYDDrinkWaterViewController.swift */; };
 		A258C4C22B96390A00D44C63 /* HYDProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A258C4C12B96390A00D44C63 /* HYDProfileView.swift */; };
+		A258C4C62B963EC000D44C63 /* HYDDrinkWaterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A258C4C52B963EC000D44C63 /* HYDDrinkWaterViewModel.swift */; };
+		A258C4C82B963ECC00D44C63 /* HYDProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A258C4C72B963ECC00D44C63 /* HYDProfileViewModel.swift */; };
 		A2A0B6722B8F353F000AF73F /* HYDTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A0B6712B8F353F000AF73F /* HYDTextField.swift */; };
 		A2A0B6762B8F4238000AF73F /* HYDButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A0B6752B8F4238000AF73F /* HYDButton.swift */; };
 		A2AFD8D52B8E05E400669D10 /* HYDColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AFD8D42B8E05E400669D10 /* HYDColors.swift */; };
@@ -27,6 +29,8 @@
 /* Begin PBXFileReference section */
 		A258C4BE2B96347100D44C63 /* HYDDrinkWaterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYDDrinkWaterViewController.swift; sourceTree = "<group>"; };
 		A258C4C12B96390A00D44C63 /* HYDProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYDProfileView.swift; sourceTree = "<group>"; };
+		A258C4C52B963EC000D44C63 /* HYDDrinkWaterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYDDrinkWaterViewModel.swift; sourceTree = "<group>"; };
+		A258C4C72B963ECC00D44C63 /* HYDProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYDProfileViewModel.swift; sourceTree = "<group>"; };
 		A2A0B6712B8F353F000AF73F /* HYDTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYDTextField.swift; sourceTree = "<group>"; };
 		A2A0B6752B8F4238000AF73F /* HYDButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYDButton.swift; sourceTree = "<group>"; };
 		A2AFD8D42B8E05E400669D10 /* HYDColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYDColors.swift; sourceTree = "<group>"; };
@@ -62,6 +66,22 @@
 				A258C4C12B96390A00D44C63 /* HYDProfileView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		A258C4C32B963CB700D44C63 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A258C4C42B963EA300D44C63 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A258C4C52B963EC000D44C63 /* HYDDrinkWaterViewModel.swift */,
+				A258C4C72B963ECC00D44C63 /* HYDProfileViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		A2A0B66F2B8F3493000AF73F /* CustomViews */ = {
@@ -100,11 +120,13 @@
 		A2D756392B8DFFA70050EC1F /* Hydronaut */ = {
 			isa = PBXGroup;
 			children = (
+				A258C4C32B963CB700D44C63 /* Models */,
 				A258C4C02B96381D00D44C63 /* Views */,
+				A258C4C42B963EA300D44C63 /* ViewModels */,
+				A2D756572B8E02970050EC1F /* Controllers */,
 				A2FEF1E82B93131800CB5F5B /* Extensions */,
 				A2A0B66F2B8F3493000AF73F /* CustomViews */,
 				A2AFD8D32B8E05D300669D10 /* Constants */,
-				A2D756572B8E02970050EC1F /* Controllers */,
 				A2D756542B8E00AD0050EC1F /* Resources */,
 				A2D756432B8DFFA80050EC1F /* Assets.xcassets */,
 				A2D756482B8DFFA80050EC1F /* Info.plist */,
@@ -225,8 +247,10 @@
 				A2D7563B2B8DFFA70050EC1F /* AppDelegate.swift in Sources */,
 				A2A0B6762B8F4238000AF73F /* HYDButton.swift in Sources */,
 				A258C4BF2B96347100D44C63 /* HYDDrinkWaterViewController.swift in Sources */,
+				A258C4C62B963EC000D44C63 /* HYDDrinkWaterViewModel.swift in Sources */,
 				A2D756592B8E02B30050EC1F /* HYDProfileViewController.swift in Sources */,
 				A2D756562B8E01190050EC1F /* HYDMainNavigationController.swift in Sources */,
+				A258C4C82B963ECC00D44C63 /* HYDProfileViewModel.swift in Sources */,
 				A2D7563D2B8DFFA70050EC1F /* SceneDelegate.swift in Sources */,
 				A2AFD8D52B8E05E400669D10 /* HYDColors.swift in Sources */,
 			);
