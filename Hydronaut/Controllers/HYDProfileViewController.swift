@@ -11,13 +11,7 @@ import TextFieldEffects
 final class HYDProfileViewController: UIViewController {
     
     //MARK: - Properties
-    private let profileImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "ImageTest"))
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
-    
-    private let tapGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer()
+    private let profileView = HYDProfileView()
     
     //MARK: - Life Cycle
     override func viewDidLoad() {
@@ -25,35 +19,29 @@ final class HYDProfileViewController: UIViewController {
         setupView()
         setupTapGesture()
         setupNavigationBar()
-        setupProfileImageView()
     }
     
     //MARK: - Layout
     private func setupView() {
-        view.backgroundColor = HYDColors.primaryColor
+        view.addSubview(profileView)
+        profileView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
     
     private func setupTapGesture() {
-        view.addGestureRecognizer(tapGestureRecognizer)
-        tapGestureRecognizer.addTarget(self, action: #selector(didTap))
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap))
+        profileView.addGestureRecognizer(tapGestureRecognizer)
     }
     
     private func setupNavigationBar() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(saveButtonTapped))
     }
     
-    private func setupProfileImageView() {
-        view.addSubview(profileImageView)
-        profileImageView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(40)
-            make.leading.equalTo(view).offset(125)
-            make.trailing.equalTo(view).offset(-125)
-            make.height.equalTo(profileImageView.snp.width)
-        }
-    }
-    
     //MARK: - Actions
-    @objc private func saveButtonTapped() {}
+    @objc private func saveButtonTapped() {
+        print("tapped")
+    }
     
     @objc private func didTap() { view.endEditing(true) }
 }
