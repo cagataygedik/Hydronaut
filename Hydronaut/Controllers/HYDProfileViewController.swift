@@ -10,7 +10,6 @@ import UIKit
 final class HYDProfileViewController: UIViewController {
     
     //MARK: - Properties
-    private let viewModel = HYDProfileViewModel()
     private let profileView = HYDProfileView()
     
     //MARK: - Life Cycle

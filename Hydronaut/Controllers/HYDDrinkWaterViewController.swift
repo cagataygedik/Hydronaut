@@ -10,7 +10,6 @@ import UIKit
 final class HYDDrinkWaterViewController: UIViewController {
     
     //MARK: - Properties
-    private let viewModel = HYDDrinkWaterViewModel()
     private let drinkWaterView = HYDDrinkWaterView()
     
     //MARK: - Lifecycle
