@@ -39,7 +39,18 @@ final class HYDProfileViewController: UIViewController {
     
     //MARK: - Actions
     @objc private func saveButtonTapped() {
-        print("tapped")
+        guard let userInfo = profileView.extractUserInfoFromTextField() else {
+            let alert = UIAlertController(title: "Hey wait!",
+                                          message: "I think there's something you haven't set up correctly.",
+                                          preferredStyle: .alert)
+            
+            let okAction = UIAlertAction(title: "Let me check", style: .default, handler: nil)
+            alert.addAction(okAction)
+            present(alert, animated: true, completion: nil)
+            return
+        }
+        WaterManager.shared.updateUserInfo(with: userInfo)
+        navigationController?.popViewController(animated: true)
     }
     
     @objc private func didTap() { view.endEditing(true) }

@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A228BC1D2B970D8F0060561F /* WaterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A228BC1C2B970D8F0060561F /* WaterManager.swift */; };
+		A228BC212B972FFE0060561F /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A228BC202B972FFE0060561F /* String+Extension.swift */; };
 		A258C4BF2B96347100D44C63 /* HYDDrinkWaterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A258C4BE2B96347100D44C63 /* HYDDrinkWaterViewController.swift */; };
 		A258C4C22B96390A00D44C63 /* HYDProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A258C4C12B96390A00D44C63 /* HYDProfileView.swift */; };
-		A258C4C62B963EC000D44C63 /* HYDDrinkWaterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A258C4C52B963EC000D44C63 /* HYDDrinkWaterViewModel.swift */; };
-		A258C4C82B963ECC00D44C63 /* HYDProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A258C4C72B963ECC00D44C63 /* HYDProfileViewModel.swift */; };
 		A2A0B6722B8F353F000AF73F /* HYDTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A0B6712B8F353F000AF73F /* HYDTextField.swift */; };
 		A2A0B6762B8F4238000AF73F /* HYDButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A0B6752B8F4238000AF73F /* HYDButton.swift */; };
 		A2AFD8D52B8E05E400669D10 /* HYDColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AFD8D42B8E05E400669D10 /* HYDColors.swift */; };
@@ -27,10 +27,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A228BC1C2B970D8F0060561F /* WaterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterManager.swift; sourceTree = "<group>"; };
+		A228BC202B972FFE0060561F /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		A258C4BE2B96347100D44C63 /* HYDDrinkWaterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYDDrinkWaterViewController.swift; sourceTree = "<group>"; };
 		A258C4C12B96390A00D44C63 /* HYDProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYDProfileView.swift; sourceTree = "<group>"; };
-		A258C4C52B963EC000D44C63 /* HYDDrinkWaterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYDDrinkWaterViewModel.swift; sourceTree = "<group>"; };
-		A258C4C72B963ECC00D44C63 /* HYDProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYDProfileViewModel.swift; sourceTree = "<group>"; };
 		A2A0B6712B8F353F000AF73F /* HYDTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYDTextField.swift; sourceTree = "<group>"; };
 		A2A0B6752B8F4238000AF73F /* HYDButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYDButton.swift; sourceTree = "<group>"; };
 		A2AFD8D42B8E05E400669D10 /* HYDColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYDColors.swift; sourceTree = "<group>"; };
@@ -71,17 +71,9 @@
 		A258C4C32B963CB700D44C63 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A228BC1C2B970D8F0060561F /* WaterManager.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		A258C4C42B963EA300D44C63 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				A258C4C52B963EC000D44C63 /* HYDDrinkWaterViewModel.swift */,
-				A258C4C72B963ECC00D44C63 /* HYDProfileViewModel.swift */,
-			);
-			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		A2A0B66F2B8F3493000AF73F /* CustomViews */ = {
@@ -122,7 +114,6 @@
 			children = (
 				A258C4C32B963CB700D44C63 /* Models */,
 				A258C4C02B96381D00D44C63 /* Views */,
-				A258C4C42B963EA300D44C63 /* ViewModels */,
 				A2D756572B8E02970050EC1F /* Controllers */,
 				A2FEF1E82B93131800CB5F5B /* Extensions */,
 				A2A0B66F2B8F3493000AF73F /* CustomViews */,
@@ -158,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				A2FEF1E92B93133B00CB5F5B /* IsaoTextField+Extension.swift */,
+				A228BC202B972FFE0060561F /* String+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -241,16 +233,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2A0B6722B8F353F000AF73F /* HYDTextField.swift in Sources */,
+				A228BC1D2B970D8F0060561F /* WaterManager.swift in Sources */,
 				A258C4C22B96390A00D44C63 /* HYDProfileView.swift in Sources */,
 				A2D7563F2B8DFFA70050EC1F /* HYDDrinkWaterView.swift in Sources */,
 				A2FEF1EA2B93133B00CB5F5B /* IsaoTextField+Extension.swift in Sources */,
 				A2D7563B2B8DFFA70050EC1F /* AppDelegate.swift in Sources */,
 				A2A0B6762B8F4238000AF73F /* HYDButton.swift in Sources */,
+				A228BC212B972FFE0060561F /* String+Extension.swift in Sources */,
 				A258C4BF2B96347100D44C63 /* HYDDrinkWaterViewController.swift in Sources */,
-				A258C4C62B963EC000D44C63 /* HYDDrinkWaterViewModel.swift in Sources */,
 				A2D756592B8E02B30050EC1F /* HYDProfileViewController.swift in Sources */,
 				A2D756562B8E01190050EC1F /* HYDMainNavigationController.swift in Sources */,
-				A258C4C82B963ECC00D44C63 /* HYDProfileViewModel.swift in Sources */,
 				A2D7563D2B8DFFA70050EC1F /* SceneDelegate.swift in Sources */,
 				A2AFD8D52B8E05E400669D10 /* HYDColors.swift in Sources */,
 			);

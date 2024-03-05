@@ -10,7 +10,7 @@ import Foundation
 struct WaterManager {
     typealias Water = Int
     
-    static let shared = WaterManager()
+    static var shared = WaterManager()
     private let storage: UserDefaults
     
     private(set) var userIntake: Water = 0 {

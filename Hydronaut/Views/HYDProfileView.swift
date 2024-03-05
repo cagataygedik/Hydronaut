@@ -37,6 +37,7 @@ final class HYDProfileView: UIView {
         super.init(frame: frame)
         setupView()
         setupProfileImageView()
+        setupTextFieldDelegates()
         setupMainStackView()
     }
     
@@ -82,8 +83,59 @@ final class HYDProfileView: UIView {
             make.height.greaterThanOrEqualTo(0)
         }
     }
+    //MARK: - Helpers
+    private func setupTextFieldDelegates() {
+        nameTextField.delegate = self
+        heightTextField.delegate = self
+        weightTextField.delegate = self
+        nameTextField.text = WaterManager.shared.nickName
+    }
+    
+    func extractUserInfoFromTextField() -> [WaterManager.UserInfoKey: Any]? {
+        guard nameTextField.text!.isNotEmpty, let nickName = nameTextField.text else { return nil }
+        guard heightTextField.text!.isNotEmpty, let height = Int(heightTextField.text!) else { return nil }
+        guard weightTextField.text!.isNotEmpty, let weight = Int(weightTextField.text!) else { return nil }
+        
+        var userInfo: [WaterManager.UserInfoKey: Any]? = [:]
+        let recommendedIntake = WaterManager.shared.calculateRecommendedIntake(userHeight: height, userWeight: weight)
+        userInfo?.updateValue(nickName, forKey: .nickName)
+        userInfo?.updateValue(recommendedIntake, forKey: .recommendedIntake)
+        return userInfo
+    }
 }
 //MARK: - Extensions
+
+extension HYDProfileView: UITextFieldDelegate {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if textField === nameTextField {
+            UIView.animate(withDuration: 0.15) { [self] in
+                self.bounds = CGRect(origin: CGPoint(x: 0, y: 0),
+                                     size: CGSize.init(width: self.bounds.width, height: self.bounds.height))
+            }
+        }
+        
+        if textField === heightTextField {
+            UIView.animate(withDuration: 0.15) {
+                self.bounds = CGRect(origin: CGPoint(x: 0, y: self.nameTextField.superview!.frame.height),
+                                     size: CGSize.init(width: self.bounds.width, height: self.bounds.height))
+            }
+            
+        }
+        
+        if textField === weightTextField {
+            UIView.animate(withDuration: 0.15) { [self] in
+                self.bounds = CGRect(origin: CGPoint(x: 0, y: self.nameTextField.superview!.frame.height * 2),
+                                     size: CGSize.init(width: self.bounds.width, height: self.bounds.height))
+            }
+            
+        }
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        endEditing(true)
+    }
+}
 
 extension HYDProfileView {
     private func makeConfiguredStackView(title: String, textField: UITextField) -> UIStackView {
