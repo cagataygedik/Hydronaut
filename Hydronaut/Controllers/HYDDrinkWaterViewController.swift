@@ -43,6 +43,7 @@ final class HYDDrinkWaterViewController: UIViewController {
         drinkWaterView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        drinkWaterView.viewController = self
     }
     
     private func setupTapGesture() {
@@ -59,6 +60,9 @@ final class HYDDrinkWaterViewController: UIViewController {
     private func addNotificationObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(userIntakeDidChange), name: WaterManager.waterVolumeDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(recommendedIntakeDidChange), name: WaterManager.recommendedIntakeDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(nickNameDidChange), name: WaterManager.nickNameDidChange, object: nil)
     }
     
     //MARK: - Actions
@@ -84,5 +88,17 @@ final class HYDDrinkWaterViewController: UIViewController {
     
     @objc private func keyboardWillHide() {
         view.bounds = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
+    }
+    
+    @objc private func userIntakeDidChange() {
+        drinkWaterView.updateWaterCountLabel()
+    }
+    
+    @objc private func recommendedIntakeDidChange() {
+        drinkWaterView.updateGuideLabel()
+    }
+    
+    @objc private func nickNameDidChange() {
+        drinkWaterView.updateGuideLabel()
     }
 }

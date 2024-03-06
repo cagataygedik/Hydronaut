@@ -11,7 +11,7 @@ import SnapKit
 final class HYDDrinkWaterView: UIView {
     
     //MARK: - Properties
-    
+
     private let baseLabel: UILabel = {
         let label = UILabel()
         label.text = "Well done!\nThe amount you drink today is"
@@ -23,7 +23,7 @@ final class HYDDrinkWaterView: UIView {
     
     private let waterCountLabel: UILabel = {
         let label = UILabel()
-        label.text = "0ml" //will remove
+//        label.text = "0ml"
         label.font = .systemFont(ofSize: 25, weight: .bold)
         label.textColor = .white
         return label
@@ -31,7 +31,7 @@ final class HYDDrinkWaterView: UIView {
     
     private let achievementRateLabel: UILabel = {
         let label = UILabel()
-        label.text = "Progress: 0%" //will remove
+        label.text = "Progress: 0%"
         label.font = .systemFont(ofSize: 16, weight: .thin)
         label.textColor = .white
         return label
@@ -45,17 +45,18 @@ final class HYDDrinkWaterView: UIView {
     
     private let waterInputTextField = HYDTextField()
     
-    private let guideLabel: UILabel = {
+    public let guideLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 12)
         label.textColor = .white
-        label.text = "(User) Your recommended daily water intake is (0.0)L."
+//        label.text = ""
         label.textAlignment = .center
         return label
     }()
     
     internal let drinkWaterButton = HYDButton()
+    weak var viewController: UIViewController?
     
     //MARK: - Lifecycle
     
@@ -67,6 +68,7 @@ final class HYDDrinkWaterView: UIView {
         setupWaterInputTextField()
         setupBottomStackView()
         animateMarsImageView()
+        updateGuideLabel()
     }
     
     required init?(coder: NSCoder) {
@@ -128,7 +130,7 @@ final class HYDDrinkWaterView: UIView {
         stackView.addArrangedSubview(guideLabel)
         stackView.addArrangedSubview(drinkWaterButton)
         
-        drinkWaterButton.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+        drinkWaterButton.addTarget(self, action: #selector(didtapDrinkWaterButton), for: .touchUpInside)
     }
     
     internal func animateMarsImageView() {
@@ -140,6 +142,61 @@ final class HYDDrinkWaterView: UIView {
     
     // MARK: - Actions
     
-    @objc private func didTapButton() { print("test") }
+    @objc private func didtapDrinkWaterButton() {
+        guard let text = waterInputTextField.text, text.isNotEmpty else {
+            let alert = UIAlertController(title: "Oopsie", message: "Please enter a value first", preferredStyle: .alert)
+            let okayAction = UIAlertAction(title: "I'm on it", style: .default)
+            alert.addAction(okayAction)
+            viewController?.present(alert, animated: true, completion: nil)
+            return
+        }
+        waterInputTextField.text = nil
+        
+        if WaterManager.shared.recommendedIntake == 0 {
+            let alert = UIAlertController(title: "No user info", message: "Please enter your info first", preferredStyle: .alert)
+            let okayAction = UIAlertAction(title: "Oh okay", style: .default) { _ in
+                self.viewController?.navigationController?.pushViewController(HYDProfileViewController(), animated: true)
+            }
+            alert.addAction(okayAction)
+            viewController?.present(alert, animated: true, completion: nil)
+            return
+        }
+        let waterVolumeString = text.replacingOccurrences(of: "ml", with: "")
+        let waterVolume = Int(waterVolumeString) ?? 0
+        WaterManager.shared.addWaterVolume(size: waterVolume)
+    }
+}
 
+extension HYDDrinkWaterView: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.text = ""
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+        if textField.text == " " {
+            textField.text = nil
+            return
+        }
+        textField.text = textField.text?.replacingOccurrences(of: " ", with: "")
+        textField.text = textField.text! + "ml"
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
+
+extension HYDDrinkWaterView {
+     func updateGuideLabel() {
+        let nickName = WaterManager.shared.nickName
+        let recommendedIntake = WaterManager.shared.recommendedIntake
+        let liter = Float(recommendedIntake) / Float(100)
+        guideLabel.text = "\(nickName) amount of water you should drink daily is \(liter)L."
+    }
+    
+    func updateWaterCountLabel() {
+        let newVolume = WaterManager.shared.userIntake
+        waterCountLabel.text = "\(newVolume)ml"
+    }
 }
