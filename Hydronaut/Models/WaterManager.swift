@@ -75,9 +75,9 @@ class WaterManager {
     }
     
     func calculateRecommendedIntake(userHeight height: Int, userWeight weight: Int) -> Int {
-        var result = ( Float(height) + Float(weight)) / 100
+        var result = (Float(height) + Float(weight)) / Float(100)
         result = ((result * 10).rounded(.down)) / 10
-        result *= 100 // Convert to milliliters
+        result = result * 1000 // Convert to milliliters
         return Int(result)
     }
 }
