@@ -7,27 +7,27 @@
 
 import Foundation
 
-struct WaterManager {
+class WaterManager {
     typealias Water = Int
     
     static var shared = WaterManager()
-    private let storage: UserDefaults
+    private let storage = UserDefaults.standard
     
     private(set) var userIntake: Water = 0 {
         didSet {
-            NotificationCenter.default.post(name: .waterVolumeDidChange, object: nil)
+            NotificationCenter.default.post(name: WaterManager.waterVolumeDidChange, object: nil)
         }
     }
     
     private(set) var recommendedIntake: Water = 0 {
         didSet {
-            NotificationCenter.default.post(name: .recommendedIntakeDidChange, object: nil)
+            NotificationCenter.default.post(name: WaterManager.recommendedIntakeDidChange, object: nil)
         }
     }
     
     private(set) var nickName: String = "" {
         didSet {
-            NotificationCenter.default.post(name: .nickNameDidChange, object: nil)
+            NotificationCenter.default.post(name: WaterManager.nickNameDidChange, object: nil)
         }
     }
     
@@ -35,11 +35,10 @@ struct WaterManager {
         return ( Float(userIntake) / Float(recommendedIntake) ) * 100
     }
     
-    private init(storage: UserDefaults = .standard) {
-        self.storage = storage
-    }
+    private init() { }
+    deinit{}
     
-    mutating func fetchUserInfo() {
+    func fetchUserInfo() {
         guard let dateString = storage.string(forKey: UserInfoKey.recordedDate.rawValue),
               let recordedDate = ISO8601DateFormatter().date(from: dateString) else { return }
         
@@ -49,17 +48,18 @@ struct WaterManager {
         
         recommendedIntake = storage.integer(forKey: UserInfoKey.recommendedIntake.rawValue)
         let nickname = storage.string(forKey: UserInfoKey.nickName.rawValue) ?? "Not Registered"
+        self.nickName = nickname
     }
     
-    mutating func addWaterVolume(size volume: Water) {
+    func addWaterVolume(size volume: Water) {
         self.userIntake += volume
     }
     
-    mutating func resetVolume() {
+    func resetVolume() {
         userIntake = 0
     }
     
-    mutating func updateUserInfo(with userInfo: [UserInfoKey: Any?]) {
+    func updateUserInfo(with userInfo: [UserInfoKey: Any?]) {
         guard let nickName = userInfo[UserInfoKey.nickName] as? String,
               let recommendedIntake = userInfo[UserInfoKey.recommendedIntake] as? Int else { return }
         self.nickName = nickName
@@ -82,7 +82,7 @@ struct WaterManager {
     }
 }
 
-extension Notification.Name {
+extension WaterManager {
     static let nickNameDidChange = Notification.Name("nickNameDidChange")
     static let waterVolumeDidChange = Notification.Name("waterVolumeDidChange")
     static let recommendedIntakeDidChange = Notification.Name("recommendedIntakeDidChange")
