@@ -92,9 +92,11 @@ final class HYDDrinkWaterViewController: UIViewController {
     
     @objc private func userIntakeDidChange() {
         drinkWaterView.updateWaterCountLabel()
+        drinkWaterView.updateAchievementRateLabel()
     }
     
     @objc private func recommendedIntakeDidChange() {
+        drinkWaterView.updateAchievementRateLabel()
         drinkWaterView.updateGuideLabel()
     }
     

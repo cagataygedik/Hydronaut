@@ -23,7 +23,6 @@ final class HYDDrinkWaterView: UIView {
     
     private let waterCountLabel: UILabel = {
         let label = UILabel()
-//        label.text = "0ml"
         label.font = .systemFont(ofSize: 25, weight: .bold)
         label.textColor = .white
         return label
@@ -31,7 +30,7 @@ final class HYDDrinkWaterView: UIView {
     
     private let achievementRateLabel: UILabel = {
         let label = UILabel()
-        label.text = "Progress: 0%"
+//        label.text = "Progress: 0%"
         label.font = .systemFont(ofSize: 16, weight: .thin)
         label.textColor = .white
         return label
@@ -50,7 +49,6 @@ final class HYDDrinkWaterView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 12)
         label.textColor = .white
-//        label.text = ""
         label.textAlignment = .center
         return label
     }()
@@ -68,7 +66,7 @@ final class HYDDrinkWaterView: UIView {
         setupWaterInputTextField()
         setupBottomStackView()
         animateMarsImageView()
-        updateGuideLabel()
+        updateUI()
     }
     
     required init?(coder: NSCoder) {
@@ -140,6 +138,12 @@ final class HYDDrinkWaterView: UIView {
         }, completion: nil)
     }
     
+    private func updateUI() {
+        updateWaterCountLabel()
+        updateAchievementRateLabel()
+        updateGuideLabel()
+    }
+    
     // MARK: - Actions
     
     @objc private func didtapDrinkWaterButton() {
@@ -167,6 +171,8 @@ final class HYDDrinkWaterView: UIView {
     }
 }
 
+//MARK: - Helpers
+
 extension HYDDrinkWaterView: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.text = ""
@@ -187,12 +193,24 @@ extension HYDDrinkWaterView: UITextFieldDelegate {
     }
 }
 
+//Updating the views
 extension HYDDrinkWaterView {
      func updateGuideLabel() {
         let nickName = WaterManager.shared.nickName
         let recommendedIntake = WaterManager.shared.recommendedIntake
-        let liter = Float(recommendedIntake) / Float(100)
+        let liter = Float(recommendedIntake) / Float(1000)
         guideLabel.text = "\(nickName) amount of water you should drink daily is \(liter)L."
+    }
+    
+    func updateAchievementRateLabel() {
+        let newRate = WaterManager.shared.achievementRate
+        var resultText: String
+        if newRate.isNaN || newRate.isInfinite {
+            resultText = "0"
+        } else {
+            resultText = "\(Int(newRate.rounded(.down)))"
+        }
+        achievementRateLabel.text = "Process: \(resultText)%"
     }
     
     func updateWaterCountLabel() {
