@@ -158,7 +158,7 @@ final class HYDDrinkWaterView: UIView {
         
         if WaterManager.shared.recommendedIntake == 0 {
             let alert = UIAlertController(title: "No user info", message: "Please enter your info first", preferredStyle: .alert)
-            let okayAction = UIAlertAction(title: "Oh okay", style: .default) { _ in
+            let okayAction = UIAlertAction(title: "Take me there", style: .default) { _ in
                 self.viewController?.navigationController?.pushViewController(HYDProfileViewController(), animated: true)
             }
             alert.addAction(okayAction)
@@ -195,6 +195,14 @@ extension HYDDrinkWaterView: UITextFieldDelegate {
 
 //Updating the views
 extension HYDDrinkWaterView {
+    func updateMarsImage() {
+        
+    }
+    
+    func updateOnAchievement() {
+        
+    }
+    
      func updateGuideLabel() {
         let nickName = WaterManager.shared.nickName
         let recommendedIntake = WaterManager.shared.recommendedIntake

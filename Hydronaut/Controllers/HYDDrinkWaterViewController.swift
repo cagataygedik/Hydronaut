@@ -72,7 +72,14 @@ final class HYDDrinkWaterViewController: UIViewController {
     }
     
     @objc private func resetWaterCountToZero() {
-        
+        let alert = UIAlertController(title: "Are you sure?", message: "All the records will be deleted", preferredStyle: .alert)
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
+            WaterManager.shared.resetVolume()
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default)
+        alert.addAction(deleteAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
     }
     
     @objc private func goToProfile() {
@@ -93,11 +100,15 @@ final class HYDDrinkWaterViewController: UIViewController {
     @objc private func userIntakeDidChange() {
         drinkWaterView.updateWaterCountLabel()
         drinkWaterView.updateAchievementRateLabel()
+        drinkWaterView.updateMarsImage()
+        drinkWaterView.updateOnAchievement()
     }
     
     @objc private func recommendedIntakeDidChange() {
         drinkWaterView.updateAchievementRateLabel()
+        drinkWaterView.updateMarsImage()
         drinkWaterView.updateGuideLabel()
+        drinkWaterView.updateOnAchievement()
     }
     
     @objc private func nickNameDidChange() {
