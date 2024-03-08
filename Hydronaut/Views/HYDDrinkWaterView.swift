@@ -30,7 +30,6 @@ final class HYDDrinkWaterView: UIView {
     
     private let achievementRateLabel: UILabel = {
         let label = UILabel()
-//        label.text = "Progress: 0%"
         label.font = .systemFont(ofSize: 16, weight: .thin)
         label.textColor = .white
         return label
@@ -148,7 +147,7 @@ final class HYDDrinkWaterView: UIView {
     
     @objc private func didtapDrinkWaterButton() {
         guard let text = waterInputTextField.text, text.isNotEmpty else {
-            let alert = UIAlertController(title: "Oopsie", message: "Please enter a value first", preferredStyle: .alert)
+            let alert = UIAlertController(title: "😳 Oopsie 😳", message: "Please enter a value first", preferredStyle: .alert)
             let okayAction = UIAlertAction(title: "I'm on it", style: .default)
             alert.addAction(okayAction)
             viewController?.present(alert, animated: true, completion: nil)
@@ -157,7 +156,7 @@ final class HYDDrinkWaterView: UIView {
         waterInputTextField.text = nil
         
         if WaterManager.shared.recommendedIntake == 0 {
-            let alert = UIAlertController(title: "No user info", message: "Please enter your info first", preferredStyle: .alert)
+            let alert = UIAlertController(title: "🤔 No user info 🤔", message: "Please enter your info first", preferredStyle: .alert)
             let okayAction = UIAlertAction(title: "Take me there", style: .default) { _ in
                 self.viewController?.navigationController?.pushViewController(HYDProfileViewController(), animated: true)
             }
@@ -200,7 +199,16 @@ extension HYDDrinkWaterView {
     }
     
     func updateOnAchievement() {
-        
+        let achievementRate = WaterManager.shared.achievementRate
+        if achievementRate >= 100 {
+            drinkWaterButton.backgroundColor = HYDColors.inactiveColor
+            drinkWaterButton.setTitle("🥳 You achieved your goal 🥳", for: .normal)
+            waterInputTextField.placeholder = "A little extra hydration is always good."
+        } else {
+            drinkWaterButton.backgroundColor = .white
+            drinkWaterButton.setTitle("Drink Water 💧", for: .normal)
+            waterInputTextField.placeholder = "Please enter the amount of water to drink"
+        }
     }
     
      func updateGuideLabel() {

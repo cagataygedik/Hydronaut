@@ -20,7 +20,6 @@ final class HYDButton: UIButton {
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
         setTitle("Drink Water 💧", for: .normal)
-        setTitle("🥳 You achieved your goal 🥳", for: .disabled)
         setTitleColor(.black, for: .normal)
         titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         backgroundColor = .white
