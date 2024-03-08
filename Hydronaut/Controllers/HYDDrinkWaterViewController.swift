@@ -63,6 +63,7 @@ final class HYDDrinkWaterViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(userIntakeDidChange), name: WaterManager.waterVolumeDidChange, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(recommendedIntakeDidChange), name: WaterManager.recommendedIntakeDidChange, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(nickNameDidChange), name: WaterManager.nickNameDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(sceneWillEnterForeground), name: UIScene.willEnterForegroundNotification, object: nil)
     }
     
     //MARK: - Actions
@@ -113,5 +114,9 @@ final class HYDDrinkWaterViewController: UIViewController {
     
     @objc private func nickNameDidChange() {
         drinkWaterView.updateGuideLabel()
+    }
+    
+    @objc private func sceneWillEnterForeground() {
+        drinkWaterView.animateMarsImageView()
     }
 }
