@@ -201,7 +201,7 @@ extension HYDDrinkWaterView {
     func updateOnAchievement() {
         let achievementRate = WaterManager.shared.achievementRate
         if achievementRate >= 100 {
-            drinkWaterButton.backgroundColor = HYDColors.inactiveColor
+            drinkWaterButton.backgroundColor = HYDColors.secondaryColor
             drinkWaterButton.setTitle("🥳 You achieved your goal 🥳", for: .normal)
             waterInputTextField.placeholder = "A little extra hydration is always good."
         } else {

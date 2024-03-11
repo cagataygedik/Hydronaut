@@ -13,7 +13,7 @@ extension IsaoTextField {
         let textField = IsaoTextField.init()
         textField.keyboardType = type
         textField.activeColor = .white
-        textField.inactiveColor = HYDColors.inactiveColor
+        textField.inactiveColor = HYDColors.secondaryColor
         textField.adjustsFontSizeToFitWidth = true
         textField.font = UIFont.systemFont(ofSize: 14)
         textField.textColor = .white
