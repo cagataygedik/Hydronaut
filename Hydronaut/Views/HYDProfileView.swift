@@ -98,8 +98,8 @@ final class HYDProfileView: UIView {
         
         var userInfo: [WaterManager.UserInfoKey: Any]? = [:]
         let recommendedIntake = WaterManager.shared.calculateRecommendedIntake(userHeight: height, userWeight: weight)
-        userInfo?.updateValue(nickName, forKey: .nickName)
-        userInfo?.updateValue(recommendedIntake, forKey: .recommendedIntake)
+        userInfo!.updateValue(nickName, forKey: .nickName)
+        userInfo!.updateValue(recommendedIntake, forKey: .recommendedIntake)
         return userInfo
     }
 }

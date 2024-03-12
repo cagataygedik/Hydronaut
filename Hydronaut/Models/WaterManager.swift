@@ -35,14 +35,20 @@ class WaterManager {
         return ( Float(userIntake) / Float(recommendedIntake) ) * 100
     }
     
+    private let dateFormatter: DateFormatter = {
+      let formatter = DateFormatter()
+      formatter.dateFormat = .some("yyyy-MM-dd")
+      return formatter
+    }()
+    
     private init() { }
     deinit{}
     
     func fetchUserInfo() {
-        guard let dateString = storage.string(forKey: UserInfoKey.recordedDate.rawValue),
-              let recordedDate = ISO8601DateFormatter().date(from: dateString) else { return }
+        guard let dateString = storage.string(forKey: UserInfoKey.recordedDate.rawValue) else { return }
+        guard let recordedDate = dateFormatter.date(from: dateString) else { fatalError(#function) }
         
-        if Calendar.current.isDateInToday(recordedDate) {
+        if recordedDate.isToday() {
             userIntake = storage.integer(forKey: UserInfoKey.userIntake.rawValue)
         }
         
@@ -60,14 +66,14 @@ class WaterManager {
     }
     
     func updateUserInfo(with userInfo: [UserInfoKey: Any?]) {
-        guard let nickName = userInfo[UserInfoKey.nickName] as? String,
-              let recommendedIntake = userInfo[UserInfoKey.recommendedIntake] as? Int else { return }
+        guard let nickName = userInfo[UserInfoKey.nickName] as? String else { return }
+        guard let recommendedIntake = userInfo[UserInfoKey.recommendedIntake] as? Int else { return }
         self.nickName = nickName
         self.recommendedIntake = recommendedIntake
     }
     
     func saveUserInfo() {
-        let recordedDate = ISO8601DateFormatter().string(from: Date())
+        let recordedDate = dateFormatter.string(from: Date())
         storage.setValue(nickName, forKey: UserInfoKey.nickName.rawValue)
         storage.setValue(recordedDate, forKey: UserInfoKey.recordedDate.rawValue)
         storage.setValue(userIntake, forKey: UserInfoKey.userIntake.rawValue)

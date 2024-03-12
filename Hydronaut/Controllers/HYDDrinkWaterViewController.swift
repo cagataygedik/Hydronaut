@@ -11,15 +11,25 @@ final class HYDDrinkWaterViewController: UIViewController {
     
     //MARK: - Properties
     private let drinkWaterView = HYDDrinkWaterView()
+    private var notificationCenter: NotificationCenter
     
     //MARK: - Lifecycle
+    
+    internal init(notificationCenter center: NotificationCenter = NotificationCenter.default) {
+      self.notificationCenter = center
+      super.init(nibName: nil, bundle: nil)
+      addNotificationObservers()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         setupTapGesture()
         setupNavigationBar()
-        addNotificationObservers()
     }
     
     override func viewWillAppear(_ animated: Bool) {
