@@ -53,5 +53,10 @@ final class HYDProfileViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    @objc private func didTap() { view.endEditing(true) }
+    @objc private func didTap() {
+        view.endEditing(true)
+        UIView.animate(withDuration: 0.15) {
+            self.profileView.bounds = CGRect(origin: CGPoint.zero, size: self.profileView.bounds.size)
+        }
+    }
 }

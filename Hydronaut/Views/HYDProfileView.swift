@@ -124,7 +124,7 @@ extension HYDProfileView: UITextFieldDelegate {
         
         if textField === weightTextField {
             UIView.animate(withDuration: 0.15) { [self] in
-                self.bounds = CGRect(origin: CGPoint(x: 0, y: self.nameTextField.superview!.frame.height * 2),
+                self.bounds = CGRect(origin: CGPoint(x: 0, y: self.nameTextField.superview!.frame.height),
                                      size: CGSize.init(width: self.bounds.width, height: self.bounds.height))
             }
             
