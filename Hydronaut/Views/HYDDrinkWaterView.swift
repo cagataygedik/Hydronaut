@@ -36,7 +36,7 @@ final class HYDDrinkWaterView: UIView {
     }()
     
     private let marsImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "ImageTest"))
+        let imageView = UIImageView(image: UIImage(named: "1"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -174,7 +174,7 @@ final class HYDDrinkWaterView: UIView {
 
 extension HYDDrinkWaterView: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.text = ""
+        textField.text = " "
     }
     
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
@@ -195,7 +195,35 @@ extension HYDDrinkWaterView: UITextFieldDelegate {
 //Updating the views
 extension HYDDrinkWaterView {
     func updateMarsImage() {
+        let rate = WaterManager.shared.achievementRate
+        guard !rate.isNaN, !rate.isInfinite else { return }
+        let intRate = Int(rate)
+        var image: UIImage
         
+        switch intRate {
+        case (0...10):
+            image = UIImage(named: "2")!
+        case (11...20):
+            image = UIImage(named: "3")!
+        case (21...30):
+            image = UIImage(named: "4")!
+        case (31...40):
+            image = UIImage(named: "5")!
+        case (41...50):
+            image = UIImage(named: "6")!
+        case (51...60):
+            image = UIImage(named: "7")!
+        case (61...70):
+            image = UIImage(named: "8")!
+        case (71...80):
+            image = UIImage(named: "9")!
+        case (81...):
+            image = UIImage(named: "10")!
+        default:
+            image = UIImage()
+        }
+        marsImageView.image = image
+        animateMarsImageView()
     }
     
     func updateOnAchievement() {
