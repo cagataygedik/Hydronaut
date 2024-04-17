@@ -231,11 +231,11 @@ extension HYDDrinkWaterView {
         if achievementRate >= 100 {
             drinkWaterButton.backgroundColor = HYDColors.secondaryColor
             drinkWaterButton.setTitle("🥳 You achieved your goal 🥳", for: .normal)
-            waterInputTextField.placeholder = "A little extra hydration is always good."
+            waterInputTextField.placeholder = "Your are Poseidon"
         } else {
             drinkWaterButton.backgroundColor = .white
             drinkWaterButton.setTitle("Drink Water 💧", for: .normal)
-            waterInputTextField.placeholder = "Please enter the amount of water to drink"
+            waterInputTextField.placeholder = "Please enter in ml"
         }
     }
     

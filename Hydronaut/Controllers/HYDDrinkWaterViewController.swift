@@ -84,7 +84,7 @@ final class HYDDrinkWaterViewController: UIViewController {
     
     @objc private func resetWaterCountToZero() {
         let alert = UIAlertController(title: "Are you sure?", message: "All the records will be deleted", preferredStyle: .alert)
-        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
+        let deleteAction = UIAlertAction(title: "Reset", style: .destructive) { _ in
             WaterManager.shared.resetVolume()
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .default)

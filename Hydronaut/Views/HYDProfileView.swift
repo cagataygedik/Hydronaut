@@ -11,9 +11,10 @@ import TextFieldEffects
 final class HYDProfileView: UIView {
     
     //MARK: - Properties
-    private let profileImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "ImageTest"))
+    private lazy var profileImageView: UIImageView = {
+        let imageView = UIImageView(image: UIImage(named: "ProfileImage"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.layer.cornerRadius = 16
         return imageView
     }()
     
