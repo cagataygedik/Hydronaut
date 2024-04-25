@@ -52,7 +52,7 @@ final class HYDDrinkWaterView: UIView {
         return label
     }()
     
-    public let guideLabelTwo: UILabel = {
+    public let hintLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 12)
@@ -135,7 +135,7 @@ final class HYDDrinkWaterView: UIView {
             make.leading.trailing.bottom.equalToSuperview()
         }
         stackView.addArrangedSubview(guideLabel)
-        stackView.addArrangedSubview(guideLabelTwo)
+        stackView.addArrangedSubview(hintLabel)
         stackView.addArrangedSubview(drinkWaterButton)
         
         drinkWaterButton.addTarget(self, action: #selector(didtapDrinkWaterButton), for: .touchUpInside)
