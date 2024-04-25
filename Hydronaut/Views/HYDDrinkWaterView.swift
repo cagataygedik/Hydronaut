@@ -11,7 +11,7 @@ import SnapKit
 final class HYDDrinkWaterView: UIView {
     
     //MARK: - Properties
-
+    
     private let baseLabel: UILabel = {
         let label = UILabel()
         label.text = "Well done!\nThe amount you drink today is"
@@ -158,26 +158,28 @@ final class HYDDrinkWaterView: UIView {
     
     @objc private func didtapDrinkWaterButton() {
         guard let text = waterInputTextField.text, text.isNotEmpty else {
-            let alert = UIAlertController(title: "😳 Oopsie 😳", message: "Please enter a value first", preferredStyle: .alert)
             let okayAction = UIAlertAction(title: "I'm on it", style: .default)
-            alert.addAction(okayAction)
-            viewController?.present(alert, animated: true, completion: nil)
+            showAlert(title: "😳 Oopsie 😳", message: "Please enter a value first", action: okayAction)
             return
         }
         waterInputTextField.text = nil
         
         if WaterManager.shared.recommendedIntake == 0 {
-            let alert = UIAlertController(title: "🤔 No user info 🤔", message: "Please enter your info first", preferredStyle: .alert)
             let okayAction = UIAlertAction(title: "Take me there", style: .default) { _ in
                 self.viewController?.navigationController?.pushViewController(HYDProfileViewController(), animated: true)
             }
-            alert.addAction(okayAction)
-            viewController?.present(alert, animated: true, completion: nil)
+            showAlert(title: "🤔 No user info 🤔", message: "Please enter your info first", action: okayAction)
             return
         }
         let waterVolumeString = text.replacingOccurrences(of: "ml", with: "")
         let waterVolume = Int(waterVolumeString) ?? 0
         WaterManager.shared.addWaterVolume(size: waterVolume)
+    }
+    
+    private func showAlert(title: String, message: String, action: UIAlertAction) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(action)
+        viewController?.present(alert, animated: true, completion: nil)
     }
 }
 
@@ -250,7 +252,7 @@ extension HYDDrinkWaterView {
         }
     }
     
-     func updateGuideLabel() {
+    func updateGuideLabel() {
         let nickName = WaterManager.shared.nickName
         let recommendedIntake = WaterManager.shared.recommendedIntake
         let liter = Float(recommendedIntake) / Float(1000)

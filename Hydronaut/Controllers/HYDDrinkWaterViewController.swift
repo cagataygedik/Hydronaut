@@ -83,14 +83,10 @@ final class HYDDrinkWaterViewController: UIViewController {
     }
     
     @objc private func resetWaterCountToZero() {
-        let alert = UIAlertController(title: "Are you sure?", message: "All the records will be deleted", preferredStyle: .alert)
         let deleteAction = UIAlertAction(title: "Reset", style: .destructive) { _ in
             WaterManager.shared.resetVolume()
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .default)
-        alert.addAction(deleteAction)
-        alert.addAction(cancelAction)
-        present(alert, animated: true, completion: nil)
+        showAlert(title: "Are you sure?", message: "All the records will be deleted", action: deleteAction)
     }
     
     @objc private func goToProfile() {
@@ -128,5 +124,20 @@ final class HYDDrinkWaterViewController: UIViewController {
     
     @objc private func sceneWillEnterForeground() {
         drinkWaterView.animateMarsImageView()
+    }
+}
+
+extension HYDDrinkWaterViewController {
+    func showAlert(title: String, message: String, action: UIAlertAction? = nil) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let defaultAction = UIAlertAction(title: "Cancel", style: .default)
+        alertController.addAction(defaultAction)
+        
+        if let customAction = action {
+            alertController.addAction(customAction)
+        }
+        
+        present(alertController, animated: true, completion: nil)
     }
 }
