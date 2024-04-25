@@ -46,9 +46,19 @@ final class HYDDrinkWaterView: UIView {
     public let guideLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .systemFont(ofSize: 14)
+        label.textColor = .white
+        label.textAlignment = .center
+        return label
+    }()
+    
+    public let guideLabelTwo: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 12)
         label.textColor = .white
         label.textAlignment = .center
+        label.text = "Hint: One cup of water is 237ml."
         return label
     }()
     
@@ -125,6 +135,7 @@ final class HYDDrinkWaterView: UIView {
             make.leading.trailing.bottom.equalToSuperview()
         }
         stackView.addArrangedSubview(guideLabel)
+        stackView.addArrangedSubview(guideLabelTwo)
         stackView.addArrangedSubview(drinkWaterButton)
         
         drinkWaterButton.addTarget(self, action: #selector(didtapDrinkWaterButton), for: .touchUpInside)
@@ -231,7 +242,7 @@ extension HYDDrinkWaterView {
         if achievementRate >= 100 {
             drinkWaterButton.backgroundColor = HYDColors.secondaryColor
             drinkWaterButton.setTitle("🥳 You achieved your goal 🥳", for: .normal)
-            waterInputTextField.placeholder = "Your are Poseidon"
+            waterInputTextField.placeholder = "Your are Hydronaut"
         } else {
             drinkWaterButton.backgroundColor = .white
             drinkWaterButton.setTitle("Drink Water 💧", for: .normal)

@@ -26,7 +26,25 @@ final class HYDTextField: UITextField {
         placeholder = "Enter the amount"
         tintColor = .white
         keyboardType = .numberPad
+        clearButtonMode = .whileEditing
+        let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: 36))
+                toolBar.barStyle = .default
+                toolBar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneButtonTapped))
+                toolBar.items = [UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil,action: nil),
+                                 doneButton
+                ]
+                toolBar.isUserInteractionEnabled = true
+                inputAccessoryView = toolBar
     }
+    
+    @objc private func doneButtonTapped() {
+        let waterVolumeString = (text?.replacingOccurrences(of: "ml", with: ""))!
+        let waterVolume = Int(waterVolumeString) ?? 0
+        WaterManager.shared.addWaterVolume(size: waterVolume)
+        text = ""
+        endEditing(true)
+        }
 }
 //Disables paste action from the text field.
 extension HYDTextField {

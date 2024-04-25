@@ -29,14 +29,14 @@
       "size" : "29x29"
     },
     {
-      "filename" : "HYDicon-76x76.png",
+      "filename" : "Unknown-76x76.png",
       "idiom" : "universal",
       "platform" : "ios",
       "scale" : "2x",
       "size" : "38x38"
     },
     {
-      "filename" : "HYDicon-114x114.png",
+      "filename" : "Unknown-114x114.png",
       "idiom" : "universal",
       "platform" : "ios",
       "scale" : "3x",
@@ -71,21 +71,21 @@
       "size" : "60x60"
     },
     {
-      "filename" : "HYDicon-128x128.png",
+      "filename" : "Unknown-128x128.png",
       "idiom" : "universal",
       "platform" : "ios",
       "scale" : "2x",
       "size" : "64x64"
     },
     {
-      "filename" : "HYDicon-192x192.png",
+      "filename" : "Unknown-192x192.png",
       "idiom" : "universal",
       "platform" : "ios",
       "scale" : "3x",
       "size" : "64x64"
     },
     {
-      "filename" : "HYDicon-136x136.png",
+      "filename" : "Unknown-136x136.png",
       "idiom" : "universal",
       "platform" : "ios",
       "scale" : "2x",
