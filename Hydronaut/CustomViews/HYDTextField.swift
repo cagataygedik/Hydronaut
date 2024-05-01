@@ -27,6 +27,10 @@ final class HYDTextField: UITextField {
         tintColor = .white
         keyboardType = .numberPad
         clearButtonMode = .whileEditing
+        addToolBar()
+    }
+    
+    private func addToolBar() {
         let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: 36))
         toolBar.barStyle = .default
         toolBar.sizeToFit()
